@@ -15,9 +15,8 @@ filename="Timelapse-201401"
 height="2592"
 width="1944"
 quality="75" 
-picture_amount="10"
+picture_amount="5"
 wait_time="2000"
-timeframe=`expr $picture_amount * \($wait_time / 1000\)`
 
 
 ## Show settings on console
@@ -33,7 +32,6 @@ echo "Breite: "$width
 echo "Qualitaet: "$quality 
 echo "Wartezeit:"$wait_time
 echo "Anzahl Bilder:" $picture_amount
-echo "Aufnahmedauer komplett circa:" $timeframe
 echo
 echo "Soll mit diesen Einstellungen gestartet werden ? (j/n)"
 echo 
@@ -71,7 +69,7 @@ while [ $number -lt $picture_amount ]
 do 
 rest=`expr $picture_amount - $number`
 echo "Es muessen noch " $rest " Bilder gemacht werden..."
-raspistill -o $path"/"$filename"_nr_"$number".jpg" -h $height -w $width -q $quality -t $wait_time
+raspistill -o $path"/"$filename"_"$number".jpg" -h $height -w $width -q $quality -t $wait_time
 number=`expr $number + 1`
 done
 }
