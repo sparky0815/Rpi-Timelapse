@@ -9,7 +9,7 @@
 ## Einstellungen:
 
 ## Speicherort für die Bilder
-path="/home/pi/timelapse_pics"
+path="/home/pi/timelapse_pics1"
 
 ## Dateiname
 filename="Timelapse"
@@ -64,10 +64,25 @@ echo
 }
 
 
+## Prüfe ob Ziehlordner vorhanden ist
+## JA => Zielordner wird geleer (Alle vorhanden .jpg Dateien werden aus dem Verzeichnis ohne Nachfrage entfernt
+## NEIN => Zielordner wird erstellt
 
-## Speicherort für Bilder leeren bevor die Aufnahme startet
+check_path() {
+if [ -d $path ]
+	then
+		echo
+		echo "Zielordner" $path "ist bereits vorhanden und wurde geleert..."
+		sudo rm -rf $path/*.jpg
+		echo
+	else
+		echo
+		echo "Der Zielordner" $path "wurde nun erstellt..."
+		sudo mkdir $path
+		echo
+fi
+}
 
-sudo rm -rf $path"/*.jpg"
 
 
 
@@ -78,6 +93,7 @@ read answer
 case $answer in
 
   j*|J*|y*|Y*) 
+check_path
 take_picture
 show_finished
 ;;
@@ -96,6 +112,8 @@ esac
 
 
 ## Bilder aufnehmen
+## Das Datum wird einmalig bei Start der Bildaufnahme abgefragt und in jeden Dateinamen der aufgenommenen Bilder eingefügt.
+## Jedem Bild wird eine fortlaufende Nummer angehangen. (Reihenfolge der Bilder)
 
 take_picture() {
 number="0"
