@@ -2,9 +2,8 @@
 
 #################################
 ## Timelapse by Sparky0815.de  ##
-## Version: 0.3		       ##
-## Date: 2014-01-22	       ##
-##			       ##
+## Date: 2014-01-26	       ##
+## http://www.sparky0815.de    ##
 ################################################################################################################################
 ## Einstellungen:
 
@@ -15,10 +14,10 @@ path="/home/pi/timelapse_pics1"
 filename="Timelapse"
 
 ## Höhe (max. 2593)
-height="2592"
+height="1944"
 
 ## Breite des Bildes (max. 1944)
-width="1944"
+width="2592"
 
 ## Qualität (0-100)
 quality="100"
@@ -30,10 +29,10 @@ exposure="auto"
 awb="auto"
 
 ## Anzahl der Bilder
-picture_amount="5"
+picture_amount="1000"
 
 ## Wartezeit zwischen der Aufnahme (in ms bsp.: 15000 = 15 sekunden)
-wait_time="2000"
+wait_time="15000"
 
 ## Bild drehen (0-359)
 rotate="0"
@@ -143,5 +142,3 @@ echo "Es wurden" $number "Bilder im Ordner" $path "abgelegt."
 
 show_setup
 start_question
-
-
