@@ -13,10 +13,10 @@ path="/home/pi/timelapse_pics1"
 ## Dateiname
 filename="Timelapse"
 
-## Höhe (max. 2593)
+## Höhe (max. 1944)
 height="1944"
 
-## Breite des Bildes (max. 1944)
+## Breite des Bildes (max. 2592)
 width="2592"
 
 ## Qualität (0-100)
