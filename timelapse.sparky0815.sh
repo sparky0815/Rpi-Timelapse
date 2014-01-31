@@ -8,7 +8,7 @@
 ## Einstellungen:
 
 ## Speicherort für die Bilder
-path="/home/pi/timelapse_pics1"
+path="/home/pi/timelapse_pics"
 
 ## Dateiname
 filename="Timelapse"
@@ -120,7 +120,7 @@ date=`date +%F`
 while [ $number -lt $picture_amount ]
 do 
 rest=`expr $picture_amount - $number`
-echo "Es muessen noch " $rest " Bilder gemacht werden..."
+echo "Noch" $rest "Bilder..."
 raspistill -o $path"/"$filename"-"$date"_"$number".jpg" -h $height -w $width -q $quality -t $wait_time -ex $exposure -awb $awb -rot $rotate
 number=`expr $number + 1`
 done
