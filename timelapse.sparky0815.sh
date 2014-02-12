@@ -32,7 +32,7 @@ awb="auto"
 picture_amount="1000"
 
 ## Wartezeit zwischen der Aufnahme (in ms bsp.: 15000 = 15 sekunden)
-wait_time="15000"
+wait_time="2000"
 
 ## Bild drehen (0-359)
 rotate="0"
@@ -58,8 +58,7 @@ echo "Bild drehen um (grad): "$rotate
 echo "Wartezeit: "$wait_time
 echo "Anzahl Bilder: "$picture_amount
 echo
-echo "Soll mit diesen Einstellungen gestartet werden ? (j/n)"
-echo 
+echo -n 'Soll mit diesen Einstellungen gestartet werden ? (j/n) \c' 
 }
 
 
@@ -120,7 +119,7 @@ date=`date +%F`
 while [ $number -lt $picture_amount ]
 do 
 rest=`expr $picture_amount - $number`
-echo "Noch" $rest "Bilder..."
+echo -n 'Noch' $rest 'Bilder...\r'
 raspistill -o $path"/"$filename"-"$date"_"$number".jpg" -h $height -w $width -q $quality -t $wait_time -ex $exposure -awb $awb -rot $rotate
 number=`expr $number + 1`
 done
