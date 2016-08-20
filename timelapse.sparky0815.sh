@@ -53,7 +53,7 @@ echo "Hoehe: "$height
 echo "Breite: "$width
 echo "Qualitaet: "$quality 
 echo "Exposure "$exposure
-echo "Automaticher Weiss Abgleich (AWB): "$awb
+echo "Automatischer Weiss Abgleich (AWB): "$awb
 echo "Bild drehen um (grad): "$rotate
 echo "Wartezeit: "$wait_time
 echo "Anzahl Bilder: "$picture_amount
